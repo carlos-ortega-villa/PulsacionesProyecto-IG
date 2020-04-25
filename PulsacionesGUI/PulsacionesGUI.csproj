@@ -46,6 +46,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Buscador.cs" />
+    <Compile Include="Campos.cs" />
     <Compile Include="ConsultaPersonasFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -57,6 +59,12 @@
     </Compile>
     <Compile Include="EliminarPersonaForm.Designer.cs">
       <DependentUpon>EliminarPersonaForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ListadoConsultaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListadoConsultaForm.Designer.cs">
+      <DependentUpon>ListadoConsultaForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ModificarPersonaForm.cs">
       <SubType>Form</SubType>
@@ -78,11 +86,15 @@
     <Compile Include="RegistroPersonaFrm.Designer.cs">
       <DependentUpon>RegistroPersonaFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Respuestas.cs" />
     <EmbeddedResource Include="ConsultaPersonasFrm.resx">
       <DependentUpon>ConsultaPersonasFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EliminarPersonaForm.resx">
       <DependentUpon>EliminarPersonaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListadoConsultaForm.resx">
+      <DependentUpon>ListadoConsultaForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ModificarPersonaForm.resx">
       <DependentUpon>ModificarPersonaForm.cs</DependentUpon>

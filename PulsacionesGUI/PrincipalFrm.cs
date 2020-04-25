@@ -41,5 +41,11 @@ namespace PulsacionesGUI
             EliminarPersonaForm eliminarPersonaForm = new EliminarPersonaForm();
             eliminarPersonaForm.Show();
         }
+
+        private void listadoCompletoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ListadoConsultaForm listadoConsultaForm = new ListadoConsultaForm();
+            listadoConsultaForm.Show();
+        }
     }
 }

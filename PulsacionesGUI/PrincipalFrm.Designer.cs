@@ -35,6 +35,7 @@
             this.consultarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modificarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eliminarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.listadoCompletoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -54,7 +55,8 @@
             this.registrarToolStripMenuItem,
             this.consultarToolStripMenuItem,
             this.modificarToolStripMenuItem,
-            this.eliminarToolStripMenuItem});
+            this.eliminarToolStripMenuItem,
+            this.listadoCompletoToolStripMenuItem});
             this.pulsacionesToolStripMenuItem.Name = "pulsacionesToolStripMenuItem";
             this.pulsacionesToolStripMenuItem.Size = new System.Drawing.Size(81, 20);
             this.pulsacionesToolStripMenuItem.Text = "Pulsaciones";
@@ -87,6 +89,13 @@
             this.eliminarToolStripMenuItem.Text = "Eliminar";
             this.eliminarToolStripMenuItem.Click += new System.EventHandler(this.eliminarToolStripMenuItem_Click);
             // 
+            // listadoCompletoToolStripMenuItem
+            // 
+            this.listadoCompletoToolStripMenuItem.Name = "listadoCompletoToolStripMenuItem";
+            this.listadoCompletoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.listadoCompletoToolStripMenuItem.Text = "Listado Completo";
+            this.listadoCompletoToolStripMenuItem.Click += new System.EventHandler(this.listadoCompletoToolStripMenuItem_Click);
+            // 
             // PrincipalFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -114,6 +123,7 @@
         private System.Windows.Forms.ToolStripMenuItem consultarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem modificarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem eliminarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem listadoCompletoToolStripMenuItem;
     }
 }
 

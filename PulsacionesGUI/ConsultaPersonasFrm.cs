@@ -13,6 +13,7 @@ using Entity;
 namespace PulsacionesGUI
 {
     public partial class ConsultaPersonasFrm : Form
+        
       {  
         PersonaService personaService = new PersonaService(); 
         public ConsultaPersonasFrm()
@@ -23,13 +24,7 @@ namespace PulsacionesGUI
 
         private void ConsultarBtn_Click(object sender, EventArgs e)
         {
-            string Id = Idtxt.Text;
-            RespuestaBusqueda respuesta = personaService.Buscar(Id);
-            MessageBox.Show(respuesta.Mensaje);
-            if (respuesta.Mensaje != null)
-            {
-
-            }
+        
 
         }
 

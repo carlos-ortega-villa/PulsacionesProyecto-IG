@@ -16,68 +16,73 @@ namespace BLL
             personaRepository = new PersonaRepository();
 
         }
-        public string Guardar(Persona persona)
+        public RespuestaBusqueda Guardar(Persona persona)
         {
-
+            RespuestaBusqueda respuesta = new RespuestaBusqueda();
             try
             {
-                if (personaRepository.Buscar(persona.Identificacion) == null)
+                respuesta.Persona = personaRepository.Buscar(persona.Identificacion);
+                if (respuesta.Persona == null)
                 {
-                    
                     personaRepository.Guardar(persona);
-                    return "Los Datos han sido guardados satisfactoriamente";
+                    respuesta.Mensaje = $"Los datos de {persona.Nombre} han sido guardados correctamente";
                 }
-                return $"La identificacion {persona.Identificacion} ya se encuentra registrada por favor verifique los datos";
-
+                else
+                {
+                    respuesta.Mensaje = $"La persona con cedula {persona.Identificacion}  ya se encuentra registrada";
+                }
             }
-            catch (Exception e)
+            catch (Exception E)
             {
-
-                return "Error de Datos: " + e.Message;
+                respuesta.Mensaje = "Error de lectura o escritura de archivos: " + E.Message;
             }
+            return respuesta;
         }
 
 
-        public string Eliminar(string identificacion)
+        public RespuestaBusqueda Eliminar(string identificacion)
         {
+            RespuestaBusqueda respuesta = new RespuestaBusqueda();
             try
             {
-                if (personaRepository.Buscar(identificacion) != null)
+                respuesta.Persona = personaRepository.Buscar(identificacion);
+                if (respuesta.Persona != null)
                 {
-
                     personaRepository.Eliminar(identificacion);
-                    return $"Los Persona con identificacion {identificacion} ha sido eliminada satisfacatoriamente";
+                    respuesta.Mensaje = $"Los datos de la persona con cedula {identificacion} han sido eliminados correctamente";
                 }
-                return $"La identificacion {identificacion} no se encuentra registrada por favor verifique los datos";
+                else
+                {
+                    respuesta.Mensaje = $"La persona con cedula {identificacion} no se encuentra registrada";
+                }
             }
-            catch (Exception e)
+            catch (Exception E)
             {
-
-                return "Error de datos" + e.Message;
+                respuesta.Mensaje = "Error de lectura o escritura de archivos" + E.Message;
             }
+            return respuesta;
 
 
         }
 
-        public string Modificar(Persona persona)
+        public RespuestaBusqueda Modificar(Persona persona)
         {
+            RespuestaBusqueda respuestaBusqueda = new RespuestaBusqueda();
 
             try
             {
-                if (personaRepository.Buscar(persona.Identificacion) != null)
-                {
-
-                    personaRepository.Modificar(persona);
-                    return $"Los Persona con identificacion {persona.Identificacion} ha sido modificada satisfacatoriamente";
-                }
-                return $"La identificacion {persona.Identificacion} no se encuentra registrada por favor verifique los datos";
+              personaRepository.Modificar(persona);
+                respuestaBusqueda.Persona = persona;
+                respuestaBusqueda.Mensaje= $"Los Persona con identificacion {persona.Identificacion} ha sido modificada satisfacatoriamente";
+              
 
             }
             catch (Exception e)
             {
 
-                return "Error de datos" + e.Message;
+                respuestaBusqueda.Mensaje = "Error de lectura o escritura de archivos"+e.Message;
             }
+            return respuestaBusqueda;
         }
 
         public RespuestaBusqueda Buscar(string identificacion)
@@ -108,7 +113,18 @@ namespace BLL
 
             }
         }
-
+        public int TotalizarPorSexo(string Sexo)
+        {
+            return personaRepository.TotalizarPorSexo(Sexo);
+        }
+        public int TotalizarPersonas()
+        {
+            return personaRepository.TotalizarPersonas();
+        }
+        public IList<Persona> ConsultarPorSexo(string Sexo)
+        {
+            return personaRepository.ConsultarPorSexo(Sexo);
+        }
 
         public RespuestaConsulta Consultar()
         {
@@ -139,6 +155,7 @@ namespace BLL
     }
 
 
+
     public class RespuestaBusqueda
     {
         public string Mensaje { get; set; }
@@ -155,6 +172,7 @@ namespace BLL
         public bool Error { get; set; }
     }
 
+       
 
 
 }

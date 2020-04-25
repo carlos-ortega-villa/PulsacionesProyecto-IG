@@ -100,5 +100,28 @@ namespace DAL
             }
             return null;
         }
+        public Persona MapearPersona(string linea)
+        {
+            Persona persona = new Persona();
+            string[] datos = linea.Split(';');
+            persona.Identificacion = datos[0];
+            persona.Nombre = datos[1];
+            persona.Edad = int.Parse(datos[2]);
+            persona.Sexo = datos[3];
+            persona.Pulsacion = int.Parse(datos[4]);
+            return persona;
+        }
+        public int TotalizarPorSexo(string Sexo)
+        {
+            return personas.Count(p => p.Sexo == Sexo);
+        }
+        public int TotalizarPersonas()
+        {
+            return personas.Count();
+        }
+        public IList<Persona> ConsultarPorSexo(string Sexo)
+        {
+            return personas.Where(p => p.Sexo == Sexo).ToList();
+        }
     }
 }
