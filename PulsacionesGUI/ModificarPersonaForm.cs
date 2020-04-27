@@ -59,11 +59,11 @@ namespace PulsacionesGUI
         }
         public void VerificarBusqueda(Persona persona)
         {
-            button1.Enabled = false;
+            button2.Enabled = false;
             IdentificacionTxt.Enabled = false;
             Persona = persona;
             PermitirCampos();
-            button2.Enabled = true;
+            ConsultarBtn.Enabled = true;
         }
         private void ModificarPersona()
         {

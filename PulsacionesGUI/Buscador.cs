@@ -12,7 +12,7 @@ using Entity;
 
 namespace PulsacionesGUI
 {
-    class Buscador
+   public class Buscador
     {
         Campos campos = new Campos();
         RespuestaBusqueda buscar = new RespuestaBusqueda();
@@ -48,7 +48,7 @@ namespace PulsacionesGUI
             else
             {
                 ModificarPersonaForm modificarPersona=(ModificarPersonaForm)control;
-                ModificarPersonaForm.VerificarBusqueda(buscar.Persona);
+                modificarPersona.VerificarBusqueda(buscar.Persona);
             }
         }
         public void Verificar(Control control)
